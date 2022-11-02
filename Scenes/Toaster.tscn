@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Fish.tscn" type="PackedScene" id=2]
+
+[sub_resource type="SpatialMaterial" id=10]
+albedo_color = Color( 0.678431, 0.117647, 0.117647, 1 )
+
+[sub_resource type="CubeMesh" id=4]
+material = SubResource( 10 )
+
+[node name="Toaster" type="Spatial"]
+
+[node name="Fish" parent="." instance=ExtResource( 2 )]
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = SubResource( 4 )
+material/0 = null

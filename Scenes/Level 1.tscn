@@ -1,0 +1,84 @@
+[gd_scene load_steps=5 format=2]
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0, 1, 0.976471, 1 )
+
+[sub_resource type="SpatialMaterial" id=6]
+albedo_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="SpatialMaterial" id=3]
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_color = Color( 1, 0, 0, 1 )
+
+[node name="Level 1" type="CSGCombiner"]
+
+[node name="CSGPolygon2" type="CSGPolygon" parent="."]
+transform = Transform( 3.5327, -0.5, 0, 2.03961, 0.866025, 0, 0, 0, 13.314, 43.9319, -0.0983982, 9.53444 )
+material = SubResource( 5 )
+
+[node name="CSGPolygon4" type="CSGPolygon" parent="."]
+transform = Transform( 17.7446, -5.96046e-08, 0, 1.05766e-06, 1, 0, 0, 0, 13.314, 26.2746, -0.0522622, 9.53444 )
+material = SubResource( 5 )
+
+[node name="CSGPolygon11" type="CSGPolygon" parent="."]
+transform = Transform( 17.7446, -5.96046e-08, 0, 1.05766e-06, 1, 0, 0, 0, 13.314, 75.8142, 1.94774, 9.53444 )
+material = SubResource( 5 )
+
+[node name="CSGPolygon5" type="CSGPolygon" parent="."]
+transform = Transform( 25.2397, -5.96046e-08, 0, 1.5044e-06, 1, 0, 0, 0, 13.314, 46.9671, 1.80113, 9.53444 )
+material = SubResource( 5 )
+
+[node name="CSGPolygon6" type="CSGPolygon" parent="."]
+transform = Transform( 0.488088, -7.97941e-08, 0, 2.90923e-08, 1.33872, 0, 0, 0, 13.314, 26.1925, -0.0192443, 9.53444 )
+material = SubResource( 6 )
+
+[node name="CSGPolygon12" type="CSGPolygon" parent="."]
+transform = Transform( 0.488088, -1.91506e-07, 0, 2.90923e-08, 3.21293, 0, 0, 0, 14.2659, 72.3608, 0.211243, 42.0199 )
+material = SubResource( 6 )
+
+[node name="CSGPolygon7" type="CSGPolygon" parent="."]
+transform = Transform( -2.11085e-08, -7.97937e-08, -46.2099, -1.25817e-15, 1.33872, -2.75432e-06, 0.482906, 2.60806e-20, -2.0199e-06, 26.1925, -0.0192443, 9.53444 )
+material = SubResource( 6 )
+
+[node name="CSGPolygon8" type="CSGPolygon" parent="."]
+transform = Transform( -2.11085e-08, -7.97937e-08, -46.7111, -1.25817e-15, 1.33872, -2.78419e-06, 0.482906, 2.60806e-20, -2.04181e-06, 26.1925, -0.0192443, -4.2137 )
+material = SubResource( 6 )
+
+[node name="CSGPolygon14" type="CSGPolygon" parent="."]
+transform = Transform( -2.11085e-08, -2.07464e-07, -18.6845, -1.25817e-15, 3.48067, -1.11368e-06, 0.482906, 6.78096e-20, -8.16724e-07, 75.6381, -0.0192416, 9.53588 )
+material = SubResource( 6 )
+
+[node name="CSGPolygon15" type="CSGPolygon" parent="."]
+transform = Transform( -2.11085e-08, -2.07464e-07, -18.6845, -1.25817e-15, 3.48067, -1.11368e-06, 0.482906, 6.78096e-20, -8.16724e-07, 75.6381, -0.0192416, -4.22893 )
+material = SubResource( 6 )
+
+[node name="CSGPolygon9" type="CSGPolygon" parent="."]
+transform = Transform( -2.11085e-08, -1.29374e-07, -24.8838, -1.25817e-15, 2.17054, -1.48319e-06, 0.482906, 4.27455e-20, -1.08771e-06, 46.9754, 1.15618, 9.53444 )
+material = SubResource( 6 )
+
+[node name="CSGPolygon10" type="CSGPolygon" parent="."]
+transform = Transform( -2.11085e-08, -1.29374e-07, -24.8838, -1.25817e-15, 2.17054, -1.48319e-06, 0.482906, 4.27455e-20, -1.08771e-06, 46.9754, 1.15618, -4.2137 )
+material = SubResource( 6 )
+
+[node name="CSGBox5" type="CSGBox" parent="."]
+transform = Transform( 4.46803, 0, 0, 0, 1.87633, 0, 0, 0, 1.58612, 44.523, 1.19666, -20.3326 )
+operation = 2
+width = 4.41417
+material = SubResource( 3 )
+
+[node name="CSGBox3" type="CSGBox" parent="."]
+transform = Transform( 0.411033, 0, 0, 0, 0.241524, 0, 0, 0, 0.241611, 28.1046, 1.20871, 4.0826 )
+material = SubResource( 4 )
+
+[node name="CSGBox" type="CSGBox" parent="."]
+transform = Transform( 1.29751, 0, 0.208011, 0, 1, 0, -2.25452, 0, 0.119713, 53, 3.79763, 0 )
+
+[node name="CSGBox6" type="CSGBox" parent="."]
+transform = Transform( -0.00557801, 0, 0.239999, 0, 1, 0, -4.049, 0, -0.00033063, 57.9909, 5.68293, 30.9905 )
+
+[node name="CSGBox2" type="CSGBox" parent="."]
+transform = Transform( -1.13703e-07, 0, -0.24, 0, 1, 0, 2.60123, 0, -1.04907e-08, 63, 3.79763, 6 )
+
+[node name="CSGBox4" type="CSGBox" parent="."]
+transform = Transform( 4.72517e-07, 6.3319e-09, -0.24, 1.58259, -0.989452, -6.93962e-16, -10.8099, -0.144857, -1.04907e-08, 74.1034, 8.29919, 3.09711 )
