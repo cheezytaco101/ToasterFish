@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Assets/Toaster.gltf" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Fish.tscn" type="PackedScene" id=2]
@@ -76,6 +76,12 @@ material = SubResource( 11 )
 radius = 1.5
 height = 3.0
 
+[sub_resource type="SpatialMaterial" id=15]
+albedo_color = Color( 1, 0.415686, 0.415686, 1 )
+
+[sub_resource type="PrismMesh" id=14]
+material = SubResource( 15 )
+
 [node name="Toaster" instance=ExtResource( 1 )]
 transform = Transform( 0.34202, -0.939693, 0, 0.939693, 0.34202, 0, 0, 0, 1, 0, 0, 0 )
 script = ExtResource( 3 )
@@ -105,3 +111,8 @@ lifetime = 0.5
 one_shot = true
 process_material = SubResource( 10 )
 draw_pass_1 = SubResource( 12 )
+
+[node name="MeshInstance" type="MeshInstance" parent="." index="5"]
+transform = Transform( -7.75497e-09, -0.196024, 0.189025, -2.85616e-09, 0.567075, 0.0653413, -0.2, -4.97488e-10, -8.26255e-09, -0.661286, 1.81687, 0 )
+mesh = SubResource( 14 )
+material/0 = null
