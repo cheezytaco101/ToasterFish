@@ -7,7 +7,7 @@ onready var toaster = get_node("Toaster")
 onready var camera = get_node("Camera")
 onready var powerBar = get_node("PowerBar")
 
-export var spawnOffset = Vector3(0,2,0) #offset for respawning the object
+export var spawnOffset = Vector3(0,2.5,0) #offset for respawning the object
 export var fishOffset = Vector3(0,4,-0.7) #offset for the fish so that it appears somewhat outside the toaster
 export var fishCameraOffset = Vector3(-6,15,5) #the offset when the camera targets the fish
 export var toasterCameraOffset = Vector3(-6,35,19) #the offset when the camera targets the toaster
@@ -17,7 +17,7 @@ export var cameraRotation = Vector3(-60,-60,0) #fixed camera rotation
 export var toasterCameraSize = 40 #toaster camera size (zoom out)
 export var fishCameraSize = 30 #fish camera (zoom in)
 
-export var barSpeed = 2 #how fast thepower bar moves
+export var barSpeed = 4 #how fast thepower bar moves
 export var powerValue = 0; #the power
 export var powerDirection = 1 #tell power bor to go left or right
 
@@ -50,6 +50,9 @@ func _process(delta):
 			#change camera focus to the fish
 			#camera.size = fishCameraSize
 			#camera.global_transform.origin = player.global_transform.origin + toasterCameraOffset
+			if Input.is_action_just_pressed("Jump"):
+				player.flop()
+			
 			pass
 		
 		
@@ -66,14 +69,17 @@ func _process(delta):
 			barCheck()
 		if Input.is_action_just_released("Jump"):
 			player.shootFish(powerValue)
+			toaster.shoot_particle()
 			player.sleeping = false
+			
 	#power bar based on the power value
 	powerBar.value = powerValue
 
 #check whether the game has end or not. Currently I am just mapping it to the "A" key
 func endCheck():
-	if true:
-		if Input.is_action_just_pressed("move_Left"): #press A to respawn
+	print(player.linear_velocity.length())
+	if player.linear_velocity.length() < 0.5:
+		if player.hasBeenShot: #press A to respawn
 			nextTurn()
 			print("p")
 			print(camera.global_transform.origin.x, "; ", camera.global_transform.origin.y, "; ", camera.global_transform.origin.z)
@@ -102,3 +108,4 @@ func nextTurn():
 	#if useCamera == true :
 		#camera.global_transform.origin = toaster.global_transform.origin + toasterCameraOffset
 		#camera.size = toasterCameraSize
+	toaster.spawn_particle()

@@ -3,5 +3,11 @@ extends Spatial
 onready var anim = $AnimationPlayer
 
 func _ready():
-	#anim.play("Idle")
+	spawn_particle()
 	pass
+	
+func shoot_particle():
+	$Shoot.restart()
+	
+func spawn_particle():
+	$Spawn.restart()

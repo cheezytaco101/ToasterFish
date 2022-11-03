@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Assets/Toaster.gltf" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Fish.tscn" type="PackedScene" id=2]
@@ -36,6 +36,46 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0.1, 0 ) ]
 }
 
+[sub_resource type="Curve" id=3]
+max_value = 2.0
+_data = [ Vector2( 0, 2 ), 0.0, 4.08088, 0, 0, Vector2( 0.380435, 0.0227273 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+direction = Vector3( 0, 1, 0 )
+spread = 30.0
+gravity = Vector3( 0, -1, 0 )
+initial_velocity = 20.0
+initial_velocity_random = 0.5
+scale_curve = SubResource( 4 )
+
+[sub_resource type="SpatialMaterial" id=6]
+flags_unshaded = true
+
+[sub_resource type="CubeMesh" id=7]
+material = SubResource( 6 )
+size = Vector3( 0.2, 0.2, 0.2 )
+
+[sub_resource type="Curve" id=8]
+_data = [ Vector2( 0, 0.720455 ), 0.0, 0.0, 0, 0, Vector2( 0.402174, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=9]
+curve = SubResource( 8 )
+
+[sub_resource type="ParticlesMaterial" id=10]
+gravity = Vector3( 0, 0, 0 )
+scale_curve = SubResource( 9 )
+
+[sub_resource type="SpatialMaterial" id=11]
+flags_unshaded = true
+
+[sub_resource type="SphereMesh" id=12]
+material = SubResource( 11 )
+radius = 1.5
+height = 3.0
+
 [node name="Toaster" instance=ExtResource( 1 )]
 transform = Transform( 0.34202, -0.939693, 0, 0.939693, 0.34202, 0, 0, 0, 1, 0, 0, 0 )
 script = ExtResource( 3 )
@@ -48,3 +88,20 @@ transform = Transform( 1, 0, 0, 0, 0.510693, -0.859763, 0, 0.859763, 0.510693, 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
 anims/Idle = SubResource( 1 )
+
+[node name="Shoot" type="Particles" parent="." index="3"]
+emitting = false
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.5
+randomness = 0.5
+process_material = SubResource( 5 )
+draw_pass_1 = SubResource( 7 )
+
+[node name="Spawn" type="Particles" parent="." index="4"]
+emitting = false
+amount = 1
+lifetime = 0.5
+one_shot = true
+process_material = SubResource( 10 )
+draw_pass_1 = SubResource( 12 )

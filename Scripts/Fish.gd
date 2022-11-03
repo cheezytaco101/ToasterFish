@@ -38,6 +38,10 @@ func shootFish(var power):
 	#apply_impulse(Vector3.ZERO, global_transform.basis.y * yLaunchPower * power * 0.01) #y impulse
 	hasBeenShot = true
 	
+func flop():
+	var p = 0.5
+	apply_impulse(self.transform.origin, (global_transform.basis.x * rand_range(-1,1) + global_transform.basis.y + global_transform.basis.z * rand_range(-1,1)) * p)
+	
 #for when the players die, it records the current position
 func recordPreviousPosition():
 	previousLocation = global_transform.origin
@@ -45,3 +49,4 @@ func recordPreviousPosition():
 #record new position 
 func recordNewPosition():
 	newLocation = global_transform.origin
+	
