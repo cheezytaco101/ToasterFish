@@ -4,7 +4,8 @@ extends Spatial
 onready var player = get_node("Toaster/Fish")
 onready var playerTimer = get_node("Toaster/Fish/FlopTimer")
 onready var toaster = get_node("Toaster")
-onready var camera = get_node("Camera")
+onready var camera = get_node("Pivot/Camera")
+onready var pivot = get_node("Pivot")
 onready var powerBar = get_node("PowerBar")
 
 export var spawnOffset = Vector3(0,2.5,0) #offset for respawning the object
@@ -25,6 +26,8 @@ export var useCamera = true #camera calculations
 
 onready var PlayerInitTransform = player.transform
 
+var desired_rotation = 0
+
 func _ready():
 	toaster.global_transform.origin = Vector3.ZERO + spawnOffset 
 	powerBar.value = powerValue
@@ -42,26 +45,25 @@ func _ready():
 
 func _process(delta):
 	
-	camera.fish_position = player.global_transform.origin
+	pivot.fish_position = player.global_transform.origin
 	endCheck()
 	
 	if player.hasBeenShot == true:
-		if useCamera == true :
-			#change camera focus to the fish
-			#camera.size = fishCameraSize
-			#camera.global_transform.origin = player.global_transform.origin + toasterCameraOffset
-			if Input.is_action_just_pressed("Jump"):
-				player.flop()
-			
-			pass
+		if Input.is_action_just_released("ui_right"):
+			desired_rotation -= 0.3
+		if Input.is_action_just_released("ui_left"):
+			desired_rotation += 0.3
 		
-		
-	#button controls
+		pivot.rotation.y = lerp_angle(pivot.rotation.y, desired_rotation, 0.1)
 	else:
 		if Input.is_action_just_released("ui_right"):
-			toaster.rotation_degrees.y -= 15
+			desired_rotation -= 0.3
 		if Input.is_action_just_released("ui_left"):
-			toaster.rotation_degrees.y += 15
+			desired_rotation += 0.3
+		
+		toaster.rotation.y = lerp_angle(toaster.rotation.y, desired_rotation, 0.1)
+		pivot.rotation.y = lerp_angle(pivot.rotation.y, toaster.rotation.y, 0.05)
+		
 			
 	if player.hasBeenShot == false:
 		if Input.is_action_pressed("Jump"):
@@ -71,6 +73,9 @@ func _process(delta):
 			player.shootFish(powerValue)
 			toaster.shoot_particle()
 			player.sleeping = false
+	else:
+		if Input.is_action_just_pressed("Jump"):
+				player.flop()
 			
 	#power bar based on the power value
 	powerBar.value = powerValue
