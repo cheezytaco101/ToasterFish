@@ -35,7 +35,7 @@ func _ready():
 func shootFish(var power):
 	sleeping = false
 	apply_impulse(Vector3.ZERO, get_parent().global_transform.basis.y * 100 * power * 0.01) #x impulse
-	#apply_impulse(Vector3.ZERO, global_transform.basis.y * yLaunchPower * power * 0.01) #y impulse
+	#apply_impulse(Vector3.ZERO, global_transform.basis.y * yLaunchPower * power * 0.01)                                               #y impulse
 	hasBeenShot = true
 	
 func flop():

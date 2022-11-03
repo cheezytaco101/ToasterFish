@@ -83,7 +83,7 @@ albedo_color = Color( 1, 0.415686, 0.415686, 1 )
 material = SubResource( 15 )
 
 [node name="Toaster" instance=ExtResource( 1 )]
-transform = Transform( 0.34202, -0.939693, 0, 0.939693, 0.34202, 0, 0, 0, 1, 0, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 0.5, -0.866025, 0, 0.866026, 0.5, 0, 0, 0 )
 script = ExtResource( 3 )
 
 [node name="Toaster" parent="Toast_Rig/Skeleton" index="0"]
@@ -114,5 +114,6 @@ draw_pass_1 = SubResource( 12 )
 
 [node name="MeshInstance" type="MeshInstance" parent="." index="5"]
 transform = Transform( -7.75497e-09, -0.196024, 0.189025, -2.85616e-09, 0.567075, 0.0653413, -0.2, -4.97488e-10, -8.26255e-09, -0.661286, 1.81687, 0 )
+visible = false
 mesh = SubResource( 14 )
 material/0 = null
