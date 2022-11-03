@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=2]
+
+[sub_resource type="ParticlesMaterial" id=1]
+emission_shape = 5
+emission_ring_radius = 5.0
+emission_ring_inner_radius = 0.0
+emission_ring_height = 5.0
+emission_ring_axis = Vector3( 0, 0, 1 )
+gravity = Vector3( 0, 0, 9.8 )
+
+[sub_resource type="SpatialMaterial" id=2]
+flags_unshaded = true
+
+[sub_resource type="CubeMesh" id=3]
+material = SubResource( 2 )
+size = Vector3( 0.2, 0.2, 1 )
+
+[sub_resource type="CylinderShape" id=4]
+radius = 5.0
+height = 20.0
+
+[node name="Fan" type="Spatial"]
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+
+[node name="Particles" type="Particles" parent="."]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.74036, 0, 0 )
+amount = 20
+lifetime = 2.0
+visibility_aabb = AABB( -5.242, -4, -4, 10.484, 8, 8 )
+process_material = SubResource( 1 )
+draw_pass_1 = SubResource( 3 )
+
+[node name="Area" type="Area" parent="."]
+space_override = 1
+gravity_point = true
+gravity_vec = Vector3( -10, 0, 0 )
+gravity = -4.0
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 4 )

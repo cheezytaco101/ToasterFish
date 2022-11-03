@@ -34,8 +34,8 @@ func _ready():
 	
 func shootFish(var power):
 	sleeping = false
-	apply_impulse(Vector3.ZERO, global_transform.basis.x * 50 * power * 0.01) #x impulse
-	apply_impulse(Vector3.ZERO, global_transform.basis.y * yLaunchPower * power * 0.01) #y impulse
+	apply_impulse(Vector3.ZERO, get_parent().global_transform.basis.y * 50 * power * 0.01) #x impulse
+	#apply_impulse(Vector3.ZERO, global_transform.basis.y * yLaunchPower * power * 0.01) #y impulse
 	hasBeenShot = true
 	
 #for when the players die, it records the current position

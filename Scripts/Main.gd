@@ -23,6 +23,8 @@ export var powerDirection = 1 #tell power bor to go left or right
 
 export var useCamera = true #camera calculations
 
+onready var PlayerInitTransform = player.transform
+
 func _ready():
 	toaster.global_transform.origin = Vector3.ZERO + spawnOffset 
 	powerBar.value = powerValue
@@ -91,8 +93,8 @@ func nextTurn():
 	#set toaster position to fish position
 	toaster.global_transform.origin = Vector3(player.global_transform.origin.x, spawnOffset.y, player.global_transform.origin.z)
 	#bring the fish to the taoster
-	player.global_transform.origin = toaster.global_transform.origin 
-	player.rotation = Vector3.ZERO
+	player.transform = PlayerInitTransform
+	#player.rotation = Vector3.ZERO
 	player.hasBeenShot = false
 	playerTimer.resetTimer()
 	#reset power

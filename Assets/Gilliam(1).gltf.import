@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/Gilliam.glb-373afd2392110a8dc64261bead52f68a.scn"
+path="res://.import/Gilliam(1).gltf-334721b632582cfe4126a05a9027b04b.scn"
 
 [deps]
 
-source_file="res://Assets/Gilliam.glb"
-dest_files=[ "res://.import/Gilliam.glb-373afd2392110a8dc64261bead52f68a.scn" ]
+source_file="res://Assets/Gilliam(1).gltf"
+dest_files=[ "res://.import/Gilliam(1).gltf-334721b632582cfe4126a05a9027b04b.scn" ]
 
 [params]
 
