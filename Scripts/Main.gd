@@ -27,7 +27,7 @@ export var useCamera = true #camera calculations
 
 onready var PlayerInitTransform = player.transform
 
-var desired_rotation = 0
+var desired_rotation = 2
 
 func _ready():
 	toaster.global_transform.origin = Vector3.ZERO + spawnOffset 

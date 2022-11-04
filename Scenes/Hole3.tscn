@@ -1,19 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/TestLevelDeegan2.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/Toaster.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/CameraControl.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/Music.tscn" type="PackedScene" id=5]
-
-[sub_resource type="ProceduralSky" id=14]
-sky_top_color = Color( 0.992157, 0.627451, 0.996078, 1 )
-ground_bottom_color = Color( 0.698039, 0.85098, 1, 1 )
-ground_horizon_color = Color( 0.0666667, 0.913725, 1, 1 )
-
-[sub_resource type="Environment" id=15]
-background_mode = 2
-background_sky = SubResource( 14 )
 
 [node name="Main" type="Spatial"]
 script = ExtResource( 1 )
@@ -37,8 +28,5 @@ transform = Transform( 0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, -0.75,
 shadow_enabled = true
 directional_shadow_mode = 0
 directional_shadow_depth_range = 1
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 15 )
 
 [node name="Music" parent="." instance=ExtResource( 5 )]
