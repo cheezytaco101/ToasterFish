@@ -24,7 +24,7 @@ transform = Transform( 2.99257, 0, 2.65416, 0, 3, 0, -2.65416, 0, 2.99257, 39.92
 transform = Transform( 2.99257, 0, 2.65416, 0, 3, 0, -2.65416, 0, 2.99257, 89.928, 7.10009, 83.9729 )
 
 [node name="Sink" parent="." instance=ExtResource( 4 )]
-transform = Transform( -2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 141.347, -20.8906, 105.121 )
+transform = Transform( -2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 141.347, -22.8906, 105.121 )
 
 [node name="Fan" parent="." instance=ExtResource( 3 )]
 transform = Transform( 0.239293, 0, 3.99284, 0, 3, 0, -3.99284, 0, 0.239293, 71, 2, 65 )

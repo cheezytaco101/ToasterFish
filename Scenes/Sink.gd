@@ -5,5 +5,5 @@ extends Spatial
 
 func _on_Area_body_entered(body):
 	if body.name == "Fish":
-		emit_signal("Win")
+		get_node("/root/GameContainer").progress()
 		print("Win")

@@ -6,7 +6,7 @@ onready var playerTimer = get_node("Toaster/Fish/FlopTimer")
 onready var toaster = get_node("Toaster")
 onready var camera = get_node("Pivot/Camera")
 onready var pivot = get_node("Pivot")
-onready var powerBar = get_node("PowerBar")
+onready var powerBar = get_node("Toaster/PowerBar")
 onready var toasterInstance = preload("Toaster.tscn")
 
 export var spawnOffset = Vector3(0,2.5,0) #offset for respawning the object
