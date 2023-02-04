@@ -7,7 +7,9 @@ onready var toaster = get_node("Toaster")
 onready var camera = get_node("Pivot/Camera")
 onready var pivot = get_node("Pivot")
 onready var powerBar = get_node("Toaster/PowerBar")
+onready var scoreText = get_node("Score/RichTextLabel")
 onready var toasterInstance = preload("Toaster.tscn")
+onready var scoreManager = get_node("/root/ScoreManager")
 
 export var spawnOffset = Vector3(0,2.5,0) #offset for respawning the object
 export var fishOffset = Vector3(0,4,-0.7) #offset for the fish so that it appears somewhat outside the toaster
@@ -29,9 +31,12 @@ onready var PlayerInitTransform = player.transform
 
 var desired_rotation = 2
 
+export var score = 0
+
 func _ready():
 	toaster.global_transform.origin = Vector3.ZERO + spawnOffset 
 	powerBar.value = powerValue
+	updateScore()
 	
 
 	##REPLACE
@@ -73,6 +78,9 @@ func _process(delta):
 			barCheck()
 		if Input.is_action_just_released("Jump"):
 			player.shootFish(powerValue)
+			score += 1;
+			updateScore()
+			updateGlobalScore()
 			toaster.shoot_particle()
 			player.sleeping = false
 	else:
@@ -123,8 +131,35 @@ func killbox():
 		
 func respawn():
 	toaster.global_transform.origin = Vector3.ZERO + spawnOffset 
+	player.transform = PlayerInitTransform
 	powerBar.value = powerValue
 	player.transform = PlayerInitTransform
 	player.hasBeenShot = false
 	powerValue = 0
 	player.sleeping = true
+	resetCurrentScore()
+	updateScore()
+	
+func updateScore():
+	scoreText.text = "Shots : " + str(score)
+	
+func updateGlobalScore() :
+	if get_node("Tag1") != null :
+		scoreManager.score1 = score
+	if get_node("Tag2") != null :
+		scoreManager.score2 = score
+	if get_node("Tag3") != null :
+		scoreManager.score3 = score
+	if get_node("Tag4") != null :
+		scoreManager.score4 = score
+		
+func resetCurrentScore() :
+	if get_node("Tag1") != null :
+		scoreManager.score1 = 0
+	if get_node("Tag2") != null :
+		scoreManager.score2 = 0
+	if get_node("Tag3") != null :
+		scoreManager.score3 = 0
+	if get_node("Tag4") != null :
+		scoreManager.score4 = 0
+	score = 0;

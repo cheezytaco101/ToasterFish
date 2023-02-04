@@ -6,6 +6,11 @@ onready var level3 = preload("Hole3.tscn")
 onready var level4 = preload("Hole4.tscn")
 onready var End = preload("End.tscn")
 
+export var score1 = 0
+export var score2 = 0
+export var score3 = 0
+export var score4 = 0
+
 var progress = 0
 
 func _ready():
@@ -25,6 +30,7 @@ func progress():
 	if progress == 1:
 		scene = level2.instance()
 		$Game.add_child(scene)
+		print(score1)
 		
 	if progress == 2:
 		scene = level4.instance()
@@ -54,3 +60,7 @@ func _process(delta):
 	if Input.is_action_just_released("L4"):
 		progress = 2
 		progress()
+		
+func _input(event):
+	if event.is_action_pressed("exit"):
+		get_tree().quit()

@@ -26,7 +26,6 @@ __meta__ = {
 
 [node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
 mesh = SubResource( 7 )
-material/0 = null
 
 [node name="CollisionShape2" type="CollisionShape" parent="StaticBody"]
 shape = SubResource( 8 )

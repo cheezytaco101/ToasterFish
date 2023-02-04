@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/TestLevel2.tscn" type="PackedScene" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Scripts/CameraControl.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/Sink.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Music.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/ScoreManager.gd" type="Script" id=8]
+[ext_resource path="res://Asset_test/Score.tscn" type="PackedScene" id=9]
 
 [node name="Main" type="Spatial"]
 script = ExtResource( 1 )
@@ -20,12 +22,13 @@ far = 693.1
 [node name="Level" type="Spatial" parent="."]
 
 [node name="TestLevel2" parent="Level" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0124044, 0, 0.0131168 )
 
 [node name="Sink" parent="Level" instance=ExtResource( 5 )]
 transform = Transform( -1.76036, 0, -0.949283, 0, 2, 0, 0.949283, 0, -1.76036, 150.825, -24.97, -58.8485 )
 
 [node name="Toaster" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 0.34202, -0.939693, 0, 0.939693, 0.34202, 0, 6.39416, 0 )
+transform = Transform( 1, 0, 0, 0, 0.34202, -0.939693, 0, 0.939693, 0.34202, 123.729, 6.39416, -84.0619 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, -0.75, 0.433013, 0, 0, 0 )
@@ -34,3 +37,10 @@ directional_shadow_mode = 0
 directional_shadow_depth_range = 1
 
 [node name="Music" parent="." instance=ExtResource( 6 )]
+
+[node name="Score" parent="." instance=ExtResource( 9 )]
+
+[node name="Tag1" type="Spatial" parent="."]
+
+[node name="ScoreManager" type="Spatial" parent="."]
+script = ExtResource( 8 )

@@ -30,7 +30,6 @@ tracks/0/keys = {
 [node name="RotatingWall" type="MeshInstance"]
 transform = Transform( 0.748142, 0, 0.663539, 0, 1, 0, -0.663539, 0, 0.748142, 0, 0, 0 )
 mesh = SubResource( 11 )
-material/0 = null
 script = ExtResource( 2 )
 
 [node name="StaticBody" type="StaticBody" parent="."]

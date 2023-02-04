@@ -7,6 +7,8 @@ export var yLaunchPower = 20
 export var maxFlops = 2 #currently not used
 export var flopCount = 0
 
+export var shootCount = 0
+
 export var velocity = Vector3.ZERO
 export var flopVelocity = Vector3.ZERO
 

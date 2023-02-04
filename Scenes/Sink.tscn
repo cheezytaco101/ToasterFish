@@ -143,7 +143,6 @@ mesh = SubResource( 38 )
 [node name="MeshInstance" type="MeshInstance" parent="." index="1"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20897, 11.2356, 0.0246086 )
 mesh = SubResource( 3 )
-material/0 = null
 
 [node name="Area" type="Area" parent="." index="2"]
 
